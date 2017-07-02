@@ -1,0 +1,137 @@
+﻿<div>
+<div style="width: 100%; margin: 10px 30px;">
+    <div style="display: inline-block; margin: 0px 10px; width: 150px;" ng-repeat="entry in entriesEFGH">
+        <div style="border: 1px solid #ddd; border-bottom: 0px; padding-left: 10px;">
+            {{entry.name}}
+        </div>
+        <table class="table table-box table-bordered" style="font-size: 11px;">
+            <thead>
+                <tr>
+                    <th colspan="2" style="white-space: nowrap;">
+                        10 to 30
+                    </th>
+                    <th style="white-space: nowrap;">
+                        36 Dr
+                    </th>
+                    <th>
+                        No.
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        A<br />
+                        U<br />
+                        G
+                    </td>
+                    <td>
+                        J<br />
+                        U<br />
+                        L
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{entry.drawE.type}}
+                    </td>
+                    <td>
+                        {{entry.drawE.number}}
+                    </td>
+                    <td ng-model="amountE">
+                        <span ng-if="entry.drawE.amount != 'X'">{{entry.drawE.amount | number:2}} </span>
+                        <span ng-if="entry.drawE.amount == 'X'">{{entry.drawE.amount}} </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        S<br />
+                        E<br />
+                        P
+                    </td>
+                    <td>
+                        A<br />
+                        U<br />
+                        G
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{entry.drawF.type}}
+                    </td>
+                    <td>
+                        {{entry.drawF.number}}
+                    </td>
+                    <td ng-model="amountF">
+                        <span ng-if="entry.drawF.amount != 'X'">{{entry.drawF.amount | number:2}} </span>
+                        <span ng-if="entry.drawF.amount == 'X'">{{entry.drawF.amount}} </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        O<br />
+                        C<br />
+                        T
+                    </td>
+                    <td>
+                        S<br />
+                        E<br />
+                        P
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{entry.drawG.type}}
+                    </td>
+                    <td>
+                        {{entry.drawG.number}}
+                    </td>
+                    <td ng-model="amountG">
+                        <span ng-if="entry.drawG.amount != 'X'">{{entry.drawG.amount | number:2}} </span>
+                        <span ng-if="entry.drawG.amount == 'X'">{{entry.drawG.amount}} </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        N<br />
+                        O<br />
+                        V
+                    </td>
+                    <td>
+                        O<br />
+                        C<br />
+                        T
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{entry.drawH.type}}
+                    </td>
+                    <td>
+                        {{entry.drawH.number}}
+                    </td>
+                    <td ng-model="amountH">
+                        <span ng-if="entry.drawH.amount != 'X'">{{entry.drawH.amount | number:2}} </span>
+                        <span ng-if="entry.drawH.amount == 'X'">{{entry.drawH.amount}} </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        Dt: {{input.today | date:'dd-MM-yy'}}
+                    </td>
+                    <td rowspan="2" style="font-size: 13px;">
+                        <b>&#8377;</b>
+                        <!--<div>
+                            <img style="height: 15px;" src="img/rupee.png" />
+                        </div>-->
+                    </td>
+                    <td rowspan="2">
+                        {{ entry.totalAmount | number:2}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>

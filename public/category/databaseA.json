@@ -1,0 +1,115 @@
+﻿[
+        {
+            "name": "Dilip Advani",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+
+        },
+        {
+            "name": "Holaram Ahuja",
+            "drawA": { "type": "A", "active": false },
+            "drawB": { "type": "B1/2", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a3",
+            "drawA": { "type": "A+", "active": true },
+            "drawB": { "type": "B", "active": false },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a4",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B+", "active": true },
+            "drawC": { "type": "C", "active": false },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a5",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C+", "active": true },
+            "drawD": { "type": "D", "active": false }
+        },
+        {
+            "name": "a6",
+            "drawA": { "type": "A", "active": false },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D+", "active": true }
+        },
+        {
+            "name": "a7",
+            "drawA": { "type": "A++", "active": true },
+            "drawB": { "type": "B", "active": false },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a8",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B++", "active": true },
+            "drawC": { "type": "C", "active": false },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a9",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C++", "active": true },
+            "drawD": { "type": "D", "active": false }
+        },
+        {
+            "name": "a10",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D++", "active": true }
+        },
+        {
+            "name": "a11",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a12",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a13",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a14",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a15",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        },
+        {
+            "name": "a16",
+            "drawA": { "type": "A", "active": true },
+            "drawB": { "type": "B", "active": true },
+            "drawC": { "type": "C", "active": true },
+            "drawD": { "type": "D", "active": true }
+        }
+      ]

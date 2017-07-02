@@ -1,0 +1,43 @@
+﻿<div class="">
+    <div class="row">
+        <div class="col-md-8">
+            <img style="height: 615px;" src="img/theBox.jpg" />
+        </div>
+
+        <div class="col-md-4">
+            <form class="form-horizontal" role="form" ng-submit="validateAccount()">
+                <div class="form-group">
+                    <label class="control-label col-sm-5" for="email">
+                        User-name:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" ng-model="myName"
+                            ng-blur="validateName()">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-5" for="pwd">
+                        Password:</label>
+                    <div class="col-sm-7">
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                            ng-model="myPassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-7">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="rememberMe">
+                                Remember me</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-7">
+                        <button type="submit" class="btn btn-default">
+                            Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

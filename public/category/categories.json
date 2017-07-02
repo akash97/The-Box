@@ -1,0 +1,14 @@
+[
+    {
+        "id": "drawABCD", 
+        "imageUrl": "img/miscellaneous/miscellaneous.jpg", 
+        "name": "Draw ABCD", 
+        "snippet": "...5 to 25!"
+    }, 
+    {
+        "id": "drawEFGH", 
+        "imageUrl": "img/miscellaneous/miscellaneous.jpg", 
+        "name": "Draw EFGH", 
+        "snippet": "...10 to 30!"
+    }
+]

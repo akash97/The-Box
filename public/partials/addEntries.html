@@ -1,0 +1,150 @@
+﻿<!-- FORM TO CREATE drawABCD -->
+		<div id="abcd-form">
+			<form class="form-horizontal">
+					<div class="form-box" style="border-left-color: #31b0d5;">					
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label col-sm-2">Name:</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control" placeholder="Enter Name" ng-model="formData.name">
+										</div>
+									</div>
+								</div>		
+								<!-- <div class="col-md-3">
+									<div class="checkbox">
+									  <label style="font-weight:bold;"><input type="checkbox" ng-model="formData.hasDrawABCD" ng-disabled="formData.name == ''">ABCD Active</label>
+									</div>
+								</div>		
+								<div class="col-md-3">
+									<div class="checkbox">
+									  <label style="font-weight:bold;"><input type="checkbox" ng-model="formData.hasDrawEFGH" ng-disabled="formData.name == ''">EFGH Active</label>
+									</div>
+								</div>	 -->					
+							</div>
+						</div>
+						
+						<div class="row" ng-if="isABCD">
+							<div class="col-md-12">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw A:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawA" ng-options="x.type for x in drawTypes.A" ng-disabled="!formData.hasDrawABCD"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw B:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawB" ng-options="x.type for x in drawTypes.B" ng-disabled="!formData.hasDrawABCD"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw C:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawC" ng-options="x.type for x in drawTypes.C" ng-disabled="!formData.hasDrawABCD"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw D:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawD" ng-options="x.type for x in drawTypes.D" ng-disabled="!formData.hasDrawABCD"></select>
+											</div>
+										</div>
+									</div>
+							</div>							
+						</div>	
+
+						<div class="row" ng-if="isEFGH">
+							<div class="col-md-12">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw E:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawE" ng-options="x.type for x in drawTypes.E" ng-disabled="!formData.hasDrawEFGH"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw F:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawF" ng-options="x.type for x in drawTypes.F" ng-disabled="!formData.hasDrawEFGH"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw G:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawG" ng-options="x.type for x in drawTypes.G" ng-disabled="!formData.hasDrawEFGH"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw H:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawH" ng-options="x.type for x in drawTypes.H" ng-disabled="!formData.hasDrawEFGH"></select>
+											</div>
+										</div>
+									</div>
+							</div>							
+						</div>	
+					</div>				
+
+					<!-- createToDo() WILL CREATE NEW TODOS -->
+					<div style="text-align: center;">
+						<button type="submit" class="btn btn-info" style="border-radius: 5px !important; width: 100px;" 
+							ng-click="confirmAdd()" data-toggle="modal" data-target="#addModal" ng-disabled="formData.name == ''">
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+						</button>
+					</div>
+					
+					<div ng-show="drawCreatedSuccessfuly">
+						<div class="alert alert-success alert-dismissible" style="margin: 10px 0px;" role="alert">
+						  <strong>Success!</strong> New draw created successfuly!!
+						</div>		
+					</div>
+				</form>
+		</div>
+		
+		<!-- Confirm Save Modal -->
+				<div class="modal fade" id="addModal" tabindex="-1" data-show="showAddModal" role="dialog" aria-labelledby="addModalLabel">
+				  <div class="modal-dialog" role="document">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="addModalLabel">Confirm Add?</h4>
+					  </div>
+					  <div class="modal-body">
+						 <span>Are you sure you want to Add this New entry?</span> <br><br>
+						 <span style="font-weight: bold;">Name: <kbd>{{formData.name}}</kbd></span><br><br>
+						 <span ng-if="isABCD" ng-class="{'strike-through': !formData.hasDrawABCD, 'error': !formData.hasDrawABCD}" style="font-weight: bold;">Draw ABCD:&nbsp;
+							<kbd>{{formData.drawA.type}}</kbd>&nbsp;|&nbsp;
+							<kbd>{{formData.drawB.type}}</kbd>&nbsp;|&nbsp;
+							<kbd>{{formData.drawC.type}}</kbd>&nbsp;|&nbsp;
+							<kbd>{{formData.drawD.type}}</kbd>
+						 </span>
+						 <br><br>
+						 <span ng-if="isEFGH" ng-class="{'strike-through': !formData.hasDrawEFGH, 'error': !formData.hasDrawEFGH}" style="font-weight: bold;">Draw EFGH:&nbsp;
+							<kbd>{{formData.drawE.type}}</kbd>&nbsp;|&nbsp;
+							<kbd>{{formData.drawF.type}}</kbd>&nbsp;|&nbsp;
+							<kbd>{{formData.drawG.type}}</kbd>&nbsp;|&nbsp;
+							<kbd>{{formData.drawH.type}}</kbd>
+						 </span>
+					  </div>
+					  <div class="modal-footer" style="border-top: none;">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-info" data-dismiss="modal" ng-click="createDraw()">Add Entry</button>
+					  </div>
+					</div>
+				  </div>
+				</div>

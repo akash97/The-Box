@@ -1,0 +1,199 @@
+﻿<!-- FORM TO CREATE drawABCD -->
+		<div id="abcd-form" ng-show="isABCD">
+			<form class="form-horizontal">
+					<div class="form-box" style="border-left-color: #ec971f;">					
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label col-sm-2">Select:</label>
+										<div class="col-sm-10">
+										  <input type="text" ng-model="selected.ABCD" typeahead-on-select="setSelectedABCD($item, $model, $label, $event)"
+											uib-typeahead="data as data.name for data in gridABCDOptions.data | filter:{name: $viewValue} | limitTo:8" 
+											class="form-control" placeholder="Search Name">
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>
+						
+						<div class="row" ng-show="selected.ABCD.name != null && selected.ABCD.name != ''">
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label col-sm-2">Name:</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control" placeholder="Enter Name" ng-model="formData.name" ng-disabled="selected.ABCD.name == '' || formData.hasDrawABCD == false">
+										</div>
+									</div>
+								</div>	
+								<div class="col-md-6">
+									<!-- <div class="checkbox">
+									  <label><input type="checkbox" ng-model="formData.hasDrawABCD" ng-disabled="selected.ABCD.name == ''">Active</label>
+									</div> -->
+								</div>	
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-12">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw A:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawA" ng-disabled="formData.name == '' || formData.hasDrawABCD == false"
+												ng-options="x.type for x in drawTypes.A"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw B:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawB" ng-disabled="formData.name == '' || formData.hasDrawABCD == false" 
+												ng-options="x.type for x in drawTypes.B"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw C:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawC" ng-disabled="formData.name == '' || formData.hasDrawABCD == false" 
+												ng-options="x.type for x in drawTypes.C"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw D:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawD" ng-disabled="formData.name == '' || formData.hasDrawABCD == false" 
+												ng-options="x.type for x in drawTypes.D"></select>
+											</div>
+										</div>
+									</div>
+							</div>							
+						</div>
+					</div>					
+
+					<!-- createToDo() WILL CREATE NEW TODOS -->
+					<div style="text-align: center;">
+						<button type="submit" class="btn btn-warning" style="border-radius: 5px !important; width: 100px;" 
+							ng-click="confirmSave()" data-toggle="modal" data-target="#myModal" ng-disabled="formData.name == '' || formData.hasDraw == false">
+							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
+						</button>
+					</div>
+				</form>
+		</div>
+		
+<!-- FORM TO CREATE drawEFGH -->
+		<div id="efgh-form" ng-show="isEFGH">
+			<form class="form-horizontal">
+					<div class="form-box" style="border-left-color: #ec971f;">					
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label col-sm-2">Search:</label>
+										<div class="col-sm-10">
+										  <input type="text" ng-model="selected.EFGH" typeahead-on-select="setSelectedEFGH($item, $model, $label, $event)"
+											uib-typeahead="data as data.name for data in gridEFGHOptions.data | filter:$viewValue | limitTo:8" 
+											class="form-control" placeholder="Search Name">
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>											
+						
+						<div class="row" ng-show="selected.EFGH.name != null && selected.EFGH.name != ''">
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label col-sm-2">Name:</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control" placeholder="Enter Name" ng-model="formData.name" ng-disabled="selected.EFGH.name == '' || formData.hasDrawEFGH == false">
+										</div>
+									</div>
+								</div>		
+								<div class="col-md-6">
+									<!-- <div class="checkbox">
+									  <label><input type="checkbox" ng-model="formData.hasDrawEFGH" ng-disabled="selected.EFGH.name == ''">Active</label>
+									</div> -->
+								</div>							
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-12">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw E:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawE" ng-disabled="formData.name == '' || formData.hasDrawEFGH == false"
+												ng-options="x.type for x in drawTypes.E"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw F:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawF" ng-disabled="formData.name == '' || formData.hasDrawEFGH == false"
+												ng-options="x.type for x in drawTypes.F"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw G:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawG" ng-disabled="formData.name == '' || formData.hasDrawEFGH == false"
+												ng-options="x.type for x in drawTypes.G"></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label col-sm-4">Draw H:</label>
+											<div class="col-sm-8">
+											  <select class="form-control" ng-model="formData.drawH" ng-disabled="formData.name == '' || formData.hasDrawEFGH == false"
+												ng-options="x.type for x in drawTypes.H"></select>
+											</div>
+										</div>
+									</div>
+							</div>							
+						</div>
+					</div>					
+
+					<!-- createToDo() WILL CREATE NEW TODOS -->
+					<div style="text-align: center;">
+						<button type="submit" class="btn btn-warning" style="border-radius: 5px !important; width: 100px;" 
+							ng-click="confirmSave()" data-toggle="modal" data-target="#myModal" ng-disabled="formData.name == '' || formData.hasDraw == false">
+							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
+						</button>
+					</div>
+				</form>
+		</div>
+		
+		
+
+				<!-- Confirm Save Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" data-show="showConfirmModal" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Confirm Edit?</h4>
+					  </div>
+					  <div class="modal-body">
+						 <!-- <span>Are you sure you want to edit details for <kbd>{{isABCD ? formData.nameCopy : formData.nameCopy}}</kbd>?</span> -->
+						 <span>Are you sure you want to edit details for <kbd>{{formData.nameCopy}}</kbd>?</span>
+					  </div>
+					  <div class="modal-footer" style="border-top: none;">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-success" data-dismiss="modal" ng-click="saveSelectedDraw()">Save changes</button>
+					  </div>
+					</div>
+				  </div>
+				</div>

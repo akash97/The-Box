@@ -1,0 +1,61 @@
+﻿<div>
+    <div>		
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-inverse">              
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                      <a class="navbar-brand">Current View:</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                      <li ng-class="{ active: isActive('/category?drawABCD') }"><a href="#/category?drawABCD">Draw ABCD</a></li>
+                      <li ng-class="{ active: isActive('/category?drawEFGH') }"><a href="#/category?drawEFGH">Draw EFGH</a></li>
+                    </ul>
+					<ul class="nav navbar-nav navbar-right">
+					  <li ng-if="viewStack == true"><a style="pointer:default;" ng-click="printPage()"><span class="glyphicon glyphicon-print"></span> Print</a></li>
+					</ul>
+                </div>
+            </nav>
+            </div>
+            <div class="" style="height: 1000px">
+                <div class="col-md-2 no-print">
+                    <!--<a href="#/drawEFGH/table">Initiate Print</a>-->
+                    <ul class="nav nav-pills nav-stacked">
+                        <li ng-class="{ active: isActiveSide('calc') }"><a ng-click="setSide('calc')">
+							<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Calculate Stack <span class="pull-right" ng-show="viewStack"> << </span></a></li>
+                        <li ng-class="{ active: isActiveSide('view') }"><a ng-click="setSide('view')">
+							<span class="glyphicon glyphicon-th" aria-hidden="true"></span> View Entries</a></li>
+                        <li ng-class="{ active: isActiveSide('edit') }"><a ng-click="setSide('edit')">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Entries</a></li>
+                        <li ng-class="{ active: isActiveSide('add') }"><a ng-click="setSide('add')">
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Entry</a></li>
+                        <li ng-class="{ active: isActiveSide('audit') }"><a ng-click="setSide('audit')">
+							<span class="glyphicon glyphicon-rupee" aria-hidden="true">&#8377;</span> Audit</a></li>
+                    </ul>					
+                </div>
+                <div class="col-md-10">
+                    <div ng-show="isActiveSide('calc')">
+                        <div ng-include="'partials/calculateStack.html'">
+                        </div>
+                    </div>
+                    <div ng-show="isActiveSide('view')">
+                        <div ng-include="'partials/viewEntries.html'">
+                        </div>
+                    </div>
+                    <div ng-show="isActiveSide('edit')">
+                        <div ng-include="'partials/editEntries.html'">
+                        </div>
+                    </div>
+                    <div ng-show="isActiveSide('add')">
+                        <div ng-include="'partials/addEntries.html'">
+                        </div>
+                    </div>
+                    <div ng-show="isActiveSide('audit')">
+                        <div ng-include="'partials/drawAudit.html'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

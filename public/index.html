@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="theBoxApp">
+<head>
+    <meta charset="utf-8">
+    <title>The Box</title>
+    
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="bower_components/ui-grid/ui-grid.min.css">
+    <script src="bower_components/jquery/jquery-1.11.3.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular/angular-animate.js"></script>
+    <script src="bower_components/angular/angular-route.js"></script>
+    <script src="bower_components/angular/angular-resource.js"></script>
+	<!-- <script src="bower_components/ui-bootstrap/ui-bootstrap-tpls-2.2.0.min.js"></script> -->
+	<script src="bower_components/ui-bootstrap/ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script src="bower_components/ui-grid/ui-grid.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/services.js"></script>
+</head>
+<body style="padding-top: 0px;">
+    <div class="view-container">
+        <div class="row row-zero no-print" style="margin-top: 0px; background-color: Black;" ng-show="showHeader">
+            <a href="#/category">
+                <h2 style="color: white; margin-left: 50px; float: left;">
+                    The Box <sup style="font-size: medium" lang="iu">Beta</sup></h2>
+            </a>
+			
+            <!-- <a href="#/login">
+                <span class="glyphicon glyphicon-log-out" style="color: #e5e5e5; margin-top: 30px; margin-right: 30px; float: right;"> LogOut</span>
+            </a> -->		
+			
+        </div>
+        <div class="row" style="margin: 10px;">
+            <div ng-view class="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

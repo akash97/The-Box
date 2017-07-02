@@ -1,0 +1,115 @@
+﻿[
+        {
+            "name": "Dilip Advani",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+
+        },
+        {
+            "name": "e2",
+            "drawE": { "type": "E", "active": false },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e3",
+            "drawE": { "type": "E", "active": false },
+            "drawF": { "type": "F", "active": false },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e4",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F+", "active": true },
+            "drawG": { "type": "G", "active": false },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e5",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G+", "active": true },
+            "drawH": { "type": "H", "active": false }
+        },
+        {
+            "name": "e6",
+            "drawE": { "type": "E", "active": false },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H+", "active": true }
+        },
+        {
+            "name": "e7",
+            "drawE": { "type": "E++", "active": true },
+            "drawF": { "type": "F", "active": false },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e8",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F++", "active": true },
+            "drawG": { "type": "G", "active": false },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e9",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G++", "active": true },
+            "drawH": { "type": "H", "active": false }
+        },
+        {
+            "name": "e10",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H++", "active": true }
+        },
+        {
+            "name": "e11",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e12",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e13",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e14",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e15",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        },
+        {
+            "name": "e16",
+            "drawE": { "type": "E", "active": true },
+            "drawF": { "type": "F", "active": true },
+            "drawG": { "type": "G", "active": true },
+            "drawH": { "type": "H", "active": true }
+        }
+      ]

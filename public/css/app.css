@@ -1,0 +1,279 @@
+/* app css stylesheet */
+
+body
+{
+    padding-top: 20px;
+}
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+.affix {
+    top: 75px;
+    right: 30px;
+  width: 100%;
+}
+
+.affix-top {
+    top: 75px;
+    right: 30px;
+  position: absolute;
+  width: 100%;
+}
+
+.affix-bottom {
+    top: 75px;
+    right: 30px;
+  position: absolute;
+  width: 100%;  
+}
+.btn-print 
+{
+    right: 30px;
+    height: 50px;
+	width: 50px;
+    z-index: 999 !important;
+}
+.error
+{
+    color: Red;
+}
+  .tooltip .error .tooltip-inner {
+                color: #FFF;
+                background-color: Red;
+                box-shadow: 0 6px 12px rgba(0,0,0,.175);
+            }
+.success
+{
+    color: Green;
+}
+.control-label
+{
+    text-align: right;
+    min-width: 70px;
+}
+
+.form-box
+{
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-left: 10px solid #333;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+
+.form-row
+{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.row-zero
+{
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.sidebar-black
+{
+    background-color: Black;
+    color: White;
+}
+
+.form-control
+{
+    border-radius: 0px !important;
+}
+
+.btn
+{
+    border-radius: 0px !important;
+}
+
+.strike-through 
+{
+    text-decoration: line-through;	
+}
+.phone-images
+{
+    background-color: white;
+    width: 450px;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+
+.phones
+{
+    list-style: none;
+}
+
+.thumb
+{
+    float: left;
+    margin: -0.5em 1em 1.5em 0;
+    padding: 0.5em 1em;
+    height: 100px;
+    width: 100px;
+}
+.thumb .glyphicon 
+{
+	font-size: 85px;
+}
+
+.phones li
+{
+    clear: both;
+    height: 115px;
+    padding-top: 15px;
+}
+
+/** Detail View **/
+img.phone
+{
+    float: left;
+    margin-right: 3em;
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 2em;
+    height: 400px;
+    width: 400px;
+    display: none;
+}
+
+img.phone:first-child
+{
+    display: block;
+}
+
+
+ul.phone-thumbs
+{
+    margin: 0;
+    list-style: none;
+}
+
+ul.phone-thumbs li
+{
+    border: 1px solid black;
+    display: inline-block;
+    margin: 1em;
+    background-color: white;
+}
+
+ul.phone-thumbs img
+{
+    height: 100px;
+    width: 100px;
+    padding: 1em;
+}
+
+ul.phone-thumbs img:hover
+{
+    cursor: pointer;
+}
+
+
+ul.specs
+{
+    clear: both;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.specs > li
+{
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+}
+
+ul.specs > li > span
+{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+ul.specs dt
+{
+    font-weight: bold;
+}
+
+h1
+{
+    border-bottom: 1px solid gray;
+}
+
+tr > th
+{
+    border-bottom-width: 1px !important;
+}
+
+tr > td
+{
+    line-height: 11px !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.table-box > thead > tr > th, .table-box > tbody > tr > th, .table-box > tfoot > tr > th, .table-box > thead > tr > td, .table-box > tbody > tr > td, .table-box > tfoot > tr > td
+{
+    padding: 2px 2px;
+}
+
+.grid
+{
+    /* width: 100%; */
+    height: 550px;
+}
+
+.ui-grid-header-cell
+{
+    background-color: #333 !important;
+    color: white !important;
+}
+
+.highlitedRow {
+    background: lightBlue
+}
+
+.disabledRow {
+    background: cadetblue;
+}
+
+.glyphicon-rupee {
+	font-size: 19px;
+    font-weight: bold;
+    width: 14px;
+    padding-left: 2px;
+}
+
+.view-grid .ui-grid-row .ui-grid-cell {
+   background-color: inherit !important;
+}
+
+.myTable table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.myTable th, td {
+    padding: 5px;
+    text-align: left;
+}
+.myTable tr, td {
+    text-align: left !important;
+}
+.myTable ul {
+	padding-left: 0px;
+	margin-bottom: 0px;
+}
+.myTable li {
+	display: block;
+	margin-bottom: 2px;
+}

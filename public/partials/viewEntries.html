@@ -1,0 +1,63 @@
+﻿<div ng-if="isABCD">
+    <div class="grid view-grid" ui-grid="gridABCDOptions" ui-grid-selection>
+    </div>
+</div>
+<div ng-if="isEFGH">
+    <div class="grid view-grid" ui-grid="gridEFGHOptions" ui-grid-selection>
+    </div>
+</div>
+				
+				<!-- Confirm Delete Modal -->
+				<div class="modal fade" id="deleteModal" tabindex="-1" data-show="showDeleteModal" role="dialog" aria-labelledby="deleteModalLabel">
+				  <div class="modal-dialog" role="document">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="deleteModalLabel">Confirm Delete?</h4>
+					  </div>
+					  <div class="modal-body">
+						 <span>Are you sure you want to Delete the Record for <kbd> {{selectedRow.name}} </kbd> ?</span>
+						 <br>
+						 <label>(both ABCD and EFGH entries will be deleted)</label>
+						 <br>
+						 <span>Or you want to De-activate the <kbd>{{isABCD ? 'ABCD' : 'EFGH'}}</kbd> Entry for the selected??</span>
+					  </div>
+					  <div class="modal-footer" style="border-top: none;">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteSelected()">Delete</button>
+						<!-- <button type="button" class="btn btn-warning" data-dismiss="modal" ng-click="deactivateSelected()">De-activate</button> -->
+					  </div>
+					</div>
+				  </div>
+				</div>
+
+<div class="myTable">
+	<table id="tableStudent" style="width:100%">
+	  <thead>
+	  <caption>Monthly savings</caption>
+		<tr>
+			<th></th>
+			<th></th>
+			<th colspan="2">Savings</th>
+		</tr>
+		<tr>
+			<th style="text-align: center;"><input type="checkbox" id ="chckHead"/></th>
+			<th>Month</th>
+			<th>Savings1</th>
+			<th>Savings2</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr ng-repeat="x in dataABCD track by $index" ng-dblclick="getTableValues(this)" ng-class="{highlitedRow: isRowSelected($index)}">
+			<td>
+				<input type="checkbox" class = "chcktbl" ng-model="x.isRowSelected" ng-click="selectRow($event, $index)" />
+			</td>
+			<td>{{ x.name }}</td>
+			<td>{{ x.drawA.type }}</td>
+			<td>{{ x.drawB.type }}</td>
+			<td>{{ x.drawC.type }}</td>
+			<td>{{ x.drawD.type }}</td>
+		  </tr>
+	  </tbody>
+	</table>
+</div>

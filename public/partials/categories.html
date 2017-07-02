@@ -1,0 +1,22 @@
+﻿<div class="container-fluid" ng-if="!isABCD && !isEFGH">
+  <div class="row">
+    <div class="col-md-12">
+      <!--Body content-->
+
+      <ul class="phones">
+        <li ng-repeat="category in categories"
+            class="thumbnail phone-listing">
+          <!-- <a href="#/category?{{category.id}}" class="thumb"><img ng-src="{{category.imageUrl}}"></a> -->
+		  <a href="#/category?{{category.id}}" class="thumb"><span class="glyphicon glyphicon-th"></span></a>
+          <a href="#/category?{{category.id}}">{{category.name}}</a>
+          <p>{{category.snippet}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<div ng-if="isABCD || isEFGH">
+    <div ng-include="'partials/dashboard.html'"></div>
+</div>
