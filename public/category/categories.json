@@ -10,5 +10,11 @@
         "imageUrl": "img/miscellaneous/miscellaneous.jpg", 
         "name": "Draw EFGH", 
         "snippet": "...10 to 30!"
+    }, 
+    {
+        "id": "invoice", 
+        "imageUrl": "img/miscellaneous/miscellaneous.jpg", 
+        "name": "Invoice", 
+        "snippet": "Akash Handloom Corporation"
     }
 ]

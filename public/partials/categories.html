@@ -1,4 +1,4 @@
-﻿<div class="container-fluid" ng-if="!isABCD && !isEFGH">
+﻿<div class="container-fluid" ng-if="!isABCD && !isEFGH && !isInvoice">
   <div class="row">
     <div class="col-md-12">
       <!--Body content-->
@@ -19,4 +19,8 @@
 
 <div ng-if="isABCD || isEFGH">
     <div ng-include="'partials/dashboard.html'"></div>
+</div>
+
+<div ng-if="isInvoice">
+    <div ng-include="'partials/invoice.html'"></div>
 </div>

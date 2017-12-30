@@ -1,0 +1,176 @@
+<style>
+	.invoice-container {
+		width: 16.9cm; 
+		min-height: 22.2cm; 
+		border: 1px solid lightgrey; 
+		margin-left:auto; margin-right: auto;
+		padding: 1.9cm 0.5cm 0.5cm 0.5cm;
+		background-color: beige;
+	}
+	.invoice-content {
+		background-color: white;
+		height: -webkit-fill-available;
+	}
+	.invoice-header {
+		height: 3cm;
+	}
+	.invoice-header-left {
+		height: inherit;
+		border: 2px solid black;
+		background-color: lightyellow;
+	}
+	.invoice-header-right {
+		height: inherit;
+		background-color: lightblue;
+	}
+	.invoice-header-right > .invoice-table > table, th, td{
+		height: 28px;
+	}
+	.invoice-address {
+		height: 2.6cm;
+	}
+	.invoice-address-content {
+		height: inherit;
+		padding: 15px 0px;
+		background-color: lightgray;
+	}
+	.invoice-details {
+		height: 12.6cm;
+	}
+	.invoice-details-content {
+		height: inherit;
+		background-color: lightblue;
+	}
+	.invoice-footer {
+		height: 1.5cm;
+		position: relative;
+	}
+	.invoice-footer-content {
+		padding-top: 40px;
+		background-color: palegoldenrod;
+	}
+</style>
+<div ng-controller="invoiceController">
+	<div class="invoice-container">
+		<div class="invoice-content">
+			<div class="row invoice-header">
+				<div class="col-md-9" style="height: inherit;">
+					<div class="invoice-header-left">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="pull-left">GSTIN: 27AACPI1284J1ZQ</span>
+								<span class="pull-right">TAX INVOICE</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								AKASH HANDLOOM CORPORATION
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								City Point Complex, Opp. Niramal Bakery, WARDHA (M.S.)
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<span class="pull-left">Mob. : 9850334247 </span>
+								<span class="pull-right">e-mail : risranii06@gmail.com</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3" style="height: inherit;padding-left: 0px;">
+					<div class="invoice-header-right">
+						<table class="invoice-table" style="width:100%;height: inherit;border: none;">
+						  <tr>
+							<td style="text-decoration: underline;text-underline-position: under;">CASH / CREDIT</td>
+						  </tr>
+						  <tr>
+							<td>No.</td>
+						  </tr>
+						  <tr>
+							<td>Date: <span></span></td>
+						  </tr>
+						</table>
+					</div>					
+				</div>
+			</div>
+			
+			<div class="row invoice-address">
+				<div class="col-md-12" style="height: inherit;">
+					<div class="invoice-address-content">
+						<div class="row">
+							<div class="col-md-12">
+								To, _______
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<span class="pull-left">______</span>
+								<span class="pull-right"> GSTIN : ________</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row invoice-details">
+				<div class="col-md-12" style="height: inherit;">
+					<div class="invoice-details-content">
+						<table style="width:100%; padding:5px;">
+						  <tr style="height: 30px;">
+							<th>QTY.</th>
+							<th>PARTICULARS</th>
+							<th>RATE</th>
+							<th colspan="2">AMOUNT (Rs.)</th>
+						  </tr>
+						  <tr ng-repeat=" x in [1,2,3,4,5,6,7,8,9.10,11,12]">
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						  </tr>
+						  <tr style="height: 30px;">
+							<td rowspan="2" colspan="2"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						  </tr>  
+						  <tr style="height: 30px;">
+							<td></td>
+							<td></td>
+							<td></td>
+						  </tr>
+						  <tr style="height: 30px;">
+							<td rowspan="2" colspan="2"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						  </tr>  
+						  <tr style="height: 40px;">
+							<td></td>
+							<td></td>
+							<td></td>
+						  </tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row invoice-footer">
+				<div class="col-md-12" style="height: inherit;">
+					<div class="invoice-footer-content">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="pull-left">Thank you</span>
+								<span class="pull-right">For - Akash Handloom Corporation</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

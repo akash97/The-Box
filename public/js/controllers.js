@@ -20,6 +20,11 @@ boxControllers.controller('betaContoller', ['$scope', '$rootScope', '$location',
 
       };	
   } ]);
+  
+boxControllers.controller('invoiceController', ['$scope', '$rootScope', '$location', 'Category',
+  function ($scope, $rootScope, $location, Category) {
+      console.log("Inside invoiceController");
+  } ]);
 
 boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$routeParams', '$location', '$timeout', '$filter', '$http', 'uiGridConstants', 'dataA', 'Category', 'dataBaseA', 'dataBaseE', 'dataABCD', 'dataEFGH',
   function ($scope, $route, $rootScope, $routeParams, $location, $timeout, $filter, $http, uiGridConstants, dataA, Category, dataBaseA, dataBaseE, dataABCD, dataEFGH) {
@@ -33,6 +38,7 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
           $scope.categories = Category.query();
           $scope.isABCD = ($routeParams.drawABCD);
           $scope.isEFGH = ($routeParams.drawEFGH);
+		  $scope.isInvoice = ($routeParams.invoice);
 		  resetFormABCD();
 		  resetFormEFGH();
           toggleHeader(false); 
@@ -43,6 +49,7 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 			  if ($route.current !== null && $route.current !== undefined) {
 				  $scope.isABCD = ($route.current.params.drawABCD);
 				  $scope.isEFGH = ($route.current.params.drawEFGH);
+				  $scope.isInvoice = ($route.current.params.invoice);
 				  initDate();
 			  }
 			  else {
@@ -303,7 +310,7 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 		}
 	  
 	  $scope.dateOptions = {
-		dateDisabled: disabled,
+		/* dateDisabled: disabled, */
 		formatYear: 'yy',
 		startingDay: 1
 	  };
@@ -352,7 +359,7 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
           { name: 'Draw B', field: 'drawB.type', width: '15%' },
           { name: 'Draw C', field: 'drawC.type', width: '15%' },
           { name: 'Draw D', field: 'drawD.type', width: '15%' },
-		  { name: 'action', field: 'action', width: '20%', 
+		  { name: 'action', field: 'action', width: '20%', enableFiltering: false,
 			cellTemplate: '<div style="text-align: center; padding: 2px;">' + 
 			'<button class="btn btn-xs btn-default" style="width: 65px;border-radius: 5px !important;" ng-click="grid.appScope.editSelectedA(grid, row)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>' + 
 			'<button class="btn btn-xs btn-danger" style="width: 65px;border-radius: 5px !important;margin-left: 5px;" ng-click="grid.appScope.confirmDelete(grid, row)" data-toggle="modal" data-target="#deleteModal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>' +
@@ -377,7 +384,7 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
           { name: 'Draw F', field: 'drawF.type', width: '15%' },
           { name: 'Draw G', field: 'drawG.type', width: '15%' },
           { name: 'Draw H', field: 'drawH.type', width: '15%' },
-		  { name: 'action', field: 'action', width: '20%', 
+		  { name: 'action', field: 'action', width: '20%', enableFiltering: false,
 			cellTemplate: '<div style="text-align: center; padding: 2px;">' + 
 			'<button class="btn btn-xs btn-default" style="width: 65px;border-radius: 5px !important;" ng-click="grid.appScope.editSelectedE(grid, row)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>' + 
 			'<button class="btn btn-xs btn-danger" style="width: 65px;border-radius: 5px !important;margin-left: 5px;" ng-click="grid.appScope.confirmDelete(grid, row)" data-toggle="modal" data-target="#deleteModal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>' +
@@ -417,7 +424,10 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 			  data: [],
 			  rowTemplate: rowABCDtpl,
 			  columnDefs: gridABCDColDefs,
+			  enableGridMenu: true,
+			  exporterCsvFilename: 'ABCD.csv',
 			  enableSorting: true,
+			  enableFiltering: true,
 			  enableRowSelection: true,
 			  enableRowHeaderSelection: false,
 			  enableSelectAll: false,
@@ -431,7 +441,10 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 			  data: [],
 			  rowTemplate: rowEFGHtpl,
 			  columnDefs: gridEFGHColDefs,
+			  enableGridMenu: true,
+			  exporterCsvFilename: 'EFGH.csv',
 			  enableSorting: true,
+			  enableFiltering: true,
 			  enableRowSelection: true,
 			  enableRowHeaderSelection: false,
 			  enableSelectAll: false,
@@ -472,7 +485,7 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 			  if ($scope.input.today && $scope.input.valueE && $scope.input.valueF && $scope.input.valueG && $scope.input.valueH) {
 				  $scope.input.isValidForm = true;
 				  $scope.viewStack = true;
-				  saveEFGHValuesForDate();
+				  /* saveEFGHValuesForDate(); */
 				  calculateStackEFGH();
 			  }
               else {
@@ -532,6 +545,36 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
           var drawNo = parseInt((diffMonths * 3) + diffDraw);
           return drawNo;
       }
+	  
+	  function getScoreByDraw(m, n, o, p, q) {
+		  var score = 0;
+		  if (m) { score += 900};
+		  if (n) { score += 450 };
+		  if (o) { score += 250 };
+		  if (p) { score += 100 };
+		  
+		  return score + (100 - q);
+	  }
+	  
+	  function sortABCD() {
+		  var entriesABCDCopy = angular.copy($scope.entriesABCD);
+		  angular.forEach(entriesABCDCopy, function(entry) {
+			  var m=entry.drawA.active, n=entry.drawB.active, o=entry.drawC.active, p=entry.drawD.active, q=entry.order;
+			  entry.sortOrder = getScoreByDraw(m, n, o, p, q);
+		  });
+		  
+		  $scope.entriesABCD = $filter('orderBy')(entriesABCDCopy, 'sortOrder', true);
+	  }
+	  
+	  function sortEFGH() {
+		  var entriesEFGHCopy = angular.copy($scope.entriesEFGH);
+		  angular.forEach(entriesEFGHCopy, function(entry) {
+			  var m=entry.drawE.active, n=entry.drawF.active, o=entry.drawG.active, p=entry.drawH.active, q=entry.order;
+			  entry.sortOrder = getScoreByDraw(m, n, o, p, q);
+		  });
+		  
+		  $scope.entriesEFGH = $filter('orderBy')(entriesEFGHCopy, 'sortOrder', true);
+	  }
 
       function calculateStackABCD() {
           var today = new Date($scope.input.today);
@@ -590,7 +633,8 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 
                   entry.totalAmount = $scope.getTotalAmount(entry.drawA.amount, entry.drawB.amount, entry.drawC.amount, entry.drawD.amount);
               });
-              console.log('abcd', $scope.entriesABCD);
+			  
+			  sortABCD();
           });
       }
 
@@ -650,7 +694,8 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 
                   entry.totalAmount = $scope.getTotalAmount(entry.drawE.amount, entry.drawF.amount, entry.drawG.amount, entry.drawH.amount);
               });
-              console.log('efgh', $scope.entriesEFGH);
+              
+			  sortEFGH();
           });
       }
 
@@ -1210,3 +1255,16 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 
       initController();
   } ]);
+
+  
+boxControllers.filter('totalAmount', function($filter) {
+  return function(input) {
+	if (!isNaN(input)) {
+		input = $filter('number')(input, 2);
+	}
+    input = input.toString();
+    var out = input.replace(".", "/") || "";
+    
+    return out;
+  };
+});

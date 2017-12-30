@@ -4,13 +4,7 @@ body
 {
     padding-top: 20px;
 }
-@media print
-{
-    .no-print, .no-print *
-    {
-        display: none !important;
-    }
-}
+
 .affix {
     top: 75px;
     right: 30px;
@@ -30,6 +24,12 @@ body
   position: absolute;
   width: 100%;  
 }
+
+.print-floater {
+    position: sticky;
+    bottom: 20px;	
+}
+
 .btn-print 
 {
     right: 30px;
@@ -41,15 +41,25 @@ body
 {
     color: Red;
 }
-  .tooltip .error .tooltip-inner {
-                color: #FFF;
-                background-color: Red;
-                box-shadow: 0 6px 12px rgba(0,0,0,.175);
-            }
+ 
+ .tooltip .error .tooltip-inner 
+ {
+    color: #FFF;
+    background-color: Red;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+ }
+ 
 .success
 {
     color: Green;
 }
+
+
+.form-control:invalid{
+  border-color: orangered;;
+  box-shadow: inset 0 1px 1px rgba(241, 44, 44, 0.075), 0 0 8px rgba(234, 83, 97, 0.6);
+}
+
 .control-label
 {
     text-align: right;
@@ -210,21 +220,97 @@ h1
     border-bottom: 1px solid gray;
 }
 
-tr > th
-{
-    border-bottom-width: 1px !important;
+.stack-container {
+	margin: 0px; padding:0px;
 }
 
-tr > td
+.stack-content {
+	width: 21.5cm; margin: 0px;
+}
+
+.stack-table-element {
+	display: inline-block; margin-left: 4px; margin-right: 9px; width: 5cm;	
+}
+
+table {
+	border-color: black !important;
+	color: black !important;
+	margin-bottom: 10px !important; 
+}
+
+.name-font-small {
+	font-size: 13px;
+}
+
+.table-box {
+	font-size: 12px !important; width: 5cm;
+}
+
+.table-bordered, .border-thick {
+    border: 2px solid black !important;
+}
+
+.border-top-thick {
+	border: 2px solid black !important;
+}
+
+.table-box > thead > tr > th
+{
+    border-bottom-width: 1px !important;
+	border-color: black !important;
+}
+
+.table-box > tbody > tr > td
 {
     line-height: 11px !important;
     vertical-align: middle !important;
     text-align: center !important;
+	border-color: black !important;
 }
 
 .table-box > thead > tr > th, .table-box > tbody > tr > th, .table-box > tfoot > tr > th, .table-box > thead > tr > td, .table-box > tbody > tr > td, .table-box > tfoot > tr > td
 {
-    padding: 2px 2px;
+    padding: 4px 5px;
+	font-weight: bold;
+}
+
+.no-wrap {
+	white-space: nowrap;
+}
+
+.th-amount {
+	width: 2cm !important;
+	text-align: center !important;
+}
+
+.td-total-amount {
+	height: 1.2cm;	
+}
+
+.table-box  .td-draw-type {
+	font-weight: bold;
+    font-size: 24px;
+	text-align: left !important;
+    /* font-stretch: condensed; */
+}
+
+.td-draw-half {
+	font-weight: normal;
+    font-size: 16px;
+}
+
+.td-symbol-rupee {
+	font-size: 24px;
+    font-stretch: condensed;
+}
+
+.td-draw-number {
+	font-weight: normal !important;
+	font-size: 16px !important;
+}
+
+.td-draw-amount {
+	font-weight: normal !important;
 }
 
 .grid
@@ -258,6 +344,10 @@ tr > td
    background-color: inherit !important;
 }
 
+input[type="text"].ui-grid-filter-input {
+	color: darkgoldenrod;
+}
+
 .myTable table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -276,4 +366,17 @@ tr > td
 .myTable li {
 	display: block;
 	margin-bottom: 2px;
+}
+
+
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+	
+	@page {
+		margin: 0.5cm 0.5cm;
+	}
 }

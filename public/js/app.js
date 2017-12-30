@@ -10,7 +10,8 @@ var theBoxApp = angular.module('theBoxApp', [
   'boxServices',
   'ui.bootstrap',
   'ui.grid',
-  'ui.grid.selection'
+  'ui.grid.selection',
+  'ui.grid.exporter'
 ]);
 
 theBoxApp.config(['$routeProvider',

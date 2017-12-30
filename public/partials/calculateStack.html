@@ -1,15 +1,15 @@
 ﻿<div>
-    <form class="form-inline" ng-show="viewStack == false">
+    <form class="form-inline" style="no-print" ng-show="viewStack == false">
 		<div class="form-box" style="border-left-color: #449d44;">
 			<div class="form-row">
 				<div class="form-group">
 					<label class="control-label" for="date">
 						For date:</label>
-					<div class="input-group" style="width: 196px;">
+					<div class="input-group" style="width: 196px;" uib-tooltip="{{input.isInvalidDate ? 'Please correct the date!' : ''}}" tooltip-placement="top">
 					  <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="input.today" is-open="dtpopup.opened" 
 						datepicker-options="dateOptions" ng-required="true" />
 					  <span class="input-group-btn">
-						<button type="button" class="btn btn-default" ng-class="{success: !input.isInvalidDate, error: input.isInvalidDate}" 
+						<button type="button" class="btn btn-default" ng-class="{success: !input.isInvalidDate, error: input.isInvalidDate}" 							
 							ng-click="dtpopup.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
 					  </span>
 					</div>
@@ -29,61 +29,58 @@
 					/* Specify styling for tooltip contents */
 					.tooltip.customClass .tooltip-inner {
 						color: #FFF;
-						background-color: Red;
 						box-shadow: 0 6px 12px rgba(0,0,0,.175);
 					}
 					/* Hide arrow */
 					.tooltip.customClass .tooltip-arrow {
-						color: Red;
 					}
 				</style>
 					<label class="control-label">
 						A:</label>
-					<input type="number" class="form-control" placeholder="Enter Amount" required ng-model="input.valueA" 
-					uib-tooltip="I appeared on focus! Click away and rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr I'll vanish..."  tooltip-trigger="focus" tooltip-placement="right" tooltip-class="customClass" tooltip-enable="input.isValidForm" />	
+					<input type="number" step="0.01" class="form-control" placeholder="Enter Amount" required ng-model="input.valueA" />	
 				</div>
 				<div class="form-group">
 					<label class="control-label">
 						B:</label>
-					<input type="number" class="form-control" placeholder="Enter Amount" required ng-model="input.valueB" />
+					<input type="number" step="0.01" class="form-control" placeholder="Enter Amount" required ng-model="input.valueB" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">
 						C:</label>
-					<input type="number" class="form-control" placeholder="Enter Amount" required ng-model="input.valueC" />
+					<input type="number" step="0.01" class="form-control" placeholder="Enter Amount" required ng-model="input.valueC" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">
 						D:</label>
-					<input type="number" class="form-control" placeholder="Enter Amount" required ng-model="input.valueD" />
+					<input type="number" step="0.01" class="form-control" placeholder="Enter Amount" required ng-model="input.valueD" />
 				</div>
 			</div>
 			<div class="form-row" ng-show="isEFGH">
 				<div class="form-group">
 					<label class="control-label">
 						E:</label>
-					<input type="number" class="form-control" placeholder="Enter Amount" required ng-model="input.valueE" />
+					<input type="number" step="0.01" class="form-control" placeholder="Enter Amount" required ng-model="input.valueE" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">
 						F:</label>
-					<input type="number" class="form-control" placeholder="Enter Amount" required ng-model="input.valueF" />
+					<input type="number" step="0.01" class="form-control" placeholder="Enter Amount" required ng-model="input.valueF" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">
 						G:</label>
-					<input type="number" class="form-control" placeholder="Enter Amount" required ng-model="input.valueG" />
+					<input type="number" step="0.01" class="form-control" placeholder="Enter Amount" required ng-model="input.valueG" />
 				</div>
 				<div class="form-group">
 					<label class="control-label">
 						H:</label>
-					<input type="number" class="form-control" placeholder="Enter Amount" required ng-model="input.valueH" />
+					<input type="number" step="0.01" class="form-control" placeholder="Enter Amount" required ng-model="input.valueH" />
 				</div>
 			</div>
 		</div>
-		<div style="text-align: center;">
-			<button type="button" class="btn btn-success" style="border-radius: 5px !important; width: 100px;" ng-click="generateStack()">
-				<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Save and Generate
+		<div style="text-align: center;" uib-tooltip="{{input.isInvalidDate ? 'Please correct the date!' : ''}}" tooltip-placement="bottom">
+			<button type="button" class="btn btn-success" style="border-radius:5px !important;" ng-click="generateStack()" ng-disabled="input.isInvalidDate">
+				<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Generate
 			</button>
 		</div>
 		<div ng-show="input.isValidForm == false">
@@ -102,7 +99,7 @@
             <div ng-include="'partials/stackEFGH.html'">
             </div>
         </div>
-		<div class="row">
+		<div class="row print-floater">
 			<div class="col-md-offset-11 col-md-1">
 				<button class="btn btn-info btn-print no-print" style="border-radius: 25px !important;" ng-click="printPage()">
 						<span class="glyphicon glyphicon-print"></span>

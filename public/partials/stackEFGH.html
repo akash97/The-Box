@@ -1,137 +1,147 @@
-﻿<div>
-<div style="width: 100%; margin: 10px 30px;">
-    <div style="display: inline-block; margin: 0px 10px; width: 150px;" ng-repeat="entry in entriesEFGH">
-        <div style="border: 1px solid #ddd; border-bottom: 0px; padding-left: 10px;">
-            {{entry.name}}
+﻿<div class="stack-container">
+    <div class="stack-content">
+        <div class="stack-table-element" ng-repeat="entry in entriesEFGH">
+            <table class="table table-box table-bordered">
+                <thead>
+					<tr class="border-thick">
+                        <th colspan="5" class="no-wrap" style="font-size: 15px;">
+                            <span ng-class="{'name-font-small': entry.name.length > 17}">Mr. {{entry.name}}</span>
+                        </th>
+					</tr>
+                    <tr class="border-thick">
+                        <th colspan="2" class="no-wrap">
+                            10 to 30
+                        </th>
+                        <th class="no-wrap">	
+                            36 Dr
+                        </th>
+                        <th>
+                            No.
+                        </th>
+                        <th class="th-amount">
+                            Amount
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            A<br />
+                            U<br />
+                            G
+                        </td>
+                        <td>
+                            J<br />
+                            U<br />
+                            L
+                        </td>
+                        <td class="td-draw-type" ng-switch="entry.drawE.type">
+							<span ng-switch-when="X">E</span>
+							<span ng-switch-when="E1/2">E<span class="td-draw-half">1&frasl;2</span></span>
+							<span ng-switch-when="E++">E<span class="td-draw-half">++</span></span>
+							<span ng-switch-default>{{entry.drawE.type}}</span>
+                        </td>
+                        <td class="td-draw-number">
+                            {{entry.drawE.number}}
+                        </td>
+                        <td class="td-draw-amount">
+                            <span ng-if="entry.drawE.amount != 'X'">{{entry.drawE.amount | number:2}} </span>
+                            <span ng-if="entry.drawE.amount == 'X'" class="td-draw-number">{{entry.drawE.amount}} </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            S<br />
+                            E<br />
+                            P
+                        </td>
+                        <td>
+                            A<br />
+                            U<br />
+                            G
+                        </td>
+                        <td class="td-draw-type" ng-switch="entry.drawF.type">
+							<span ng-switch-when="X">F</span>
+							<span ng-switch-when="F1/2">F<span class="td-draw-half">1&frasl;2</span></span>
+							<span ng-switch-when="F++">F<span class="td-draw-half">++</span></span>
+							<span ng-switch-default>{{entry.drawF.type}}</span>
+                        </td>
+                        <td class="td-draw-number">
+                            {{entry.drawF.number}}
+                        </td>
+                        <td class="td-draw-amount">
+                            <span ng-if="entry.drawF.amount != 'X'">{{entry.drawF.amount | number:2}} </span>
+                            <span ng-if="entry.drawF.amount == 'X'" class="td-draw-number">{{entry.drawF.amount}} </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            O<br />
+                            C<br />
+                            T
+                        </td>
+                        <td>
+                            S<br />
+                            E<br />
+                            P
+                        </td>
+                        <td class="td-draw-type" ng-switch="entry.drawG.type">
+							<span ng-switch-when="X">G</span>
+							<span ng-switch-when="G1/2">G<span class="td-draw-half">1&frasl;2</span></span>
+							<span ng-switch-when="G++">G<span class="td-draw-half">++</span></span>
+							<span ng-switch-default>{{entry.drawG.type}}</span>
+                        </td>
+                        <td class="td-draw-number">
+                            {{entry.drawG.number}}
+                        </td>
+                        <td class="td-draw-amount">
+                            <span ng-if="entry.drawG.amount != 'X'">{{entry.drawG.amount | number:2}} </span>
+                            <span ng-if="entry.drawG.amount == 'X'" class="td-draw-number">{{entry.drawG.amount}} </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            N<br />
+                            O<br />
+                            V
+                        </td>
+                        <td>
+                            O<br />
+                            C<br />
+                            T
+                        </td>
+                        <td class="td-draw-type" ng-switch="entry.drawH.type">
+							<span ng-switch-when="X">H</span>
+							<span ng-switch-when="H1/2">H<span class="td-draw-half">1&frasl;2</span></span>
+							<span ng-switch-when="H++">H<span class="td-draw-half">++</span></span>
+							<span ng-switch-default>{{entry.drawH.type}}</span>
+                        </td>
+                        <td class="td-draw-number">
+                            {{entry.drawH.number}}
+                        </td>
+                        <td class="td-draw-amount">
+                            <span ng-if="entry.drawH.amount != 'X'">{{entry.drawH.amount | number:2}} </span>
+                            <span ng-if="entry.drawH.amount == 'X'" class="td-draw-number">{{entry.drawH.amount}} </span>
+                        </td>
+                    </tr>
+                    <tr class="border-top-thick">
+                        <td colspan="3">
+                            Dt: {{input.today | date:'dd/MM/yy'}}
+                        </td>
+                        <td rowspan="2" class="td-symbol-rupee">
+                            &#8377;
+                        </td>
+                        <td rowspan="2" class="td-total-amount">
+                            {{ entry.totalAmount | number:2}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table class="table table-box table-bordered" style="font-size: 11px;">
-            <thead>
-                <tr>
-                    <th colspan="2" style="white-space: nowrap;">
-                        10 to 30
-                    </th>
-                    <th style="white-space: nowrap;">
-                        36 Dr
-                    </th>
-                    <th>
-                        No.
-                    </th>
-                    <th>
-                        Amount
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        A<br />
-                        U<br />
-                        G
-                    </td>
-                    <td>
-                        J<br />
-                        U<br />
-                        L
-                    </td>
-                    <td style="font-weight: bold;">
-                        {{entry.drawE.type}}
-                    </td>
-                    <td>
-                        {{entry.drawE.number}}
-                    </td>
-                    <td ng-model="amountE">
-                        <span ng-if="entry.drawE.amount != 'X'">{{entry.drawE.amount | number:2}} </span>
-                        <span ng-if="entry.drawE.amount == 'X'">{{entry.drawE.amount}} </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        S<br />
-                        E<br />
-                        P
-                    </td>
-                    <td>
-                        A<br />
-                        U<br />
-                        G
-                    </td>
-                    <td style="font-weight: bold;">
-                        {{entry.drawF.type}}
-                    </td>
-                    <td>
-                        {{entry.drawF.number}}
-                    </td>
-                    <td ng-model="amountF">
-                        <span ng-if="entry.drawF.amount != 'X'">{{entry.drawF.amount | number:2}} </span>
-                        <span ng-if="entry.drawF.amount == 'X'">{{entry.drawF.amount}} </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        O<br />
-                        C<br />
-                        T
-                    </td>
-                    <td>
-                        S<br />
-                        E<br />
-                        P
-                    </td>
-                    <td style="font-weight: bold;">
-                        {{entry.drawG.type}}
-                    </td>
-                    <td>
-                        {{entry.drawG.number}}
-                    </td>
-                    <td ng-model="amountG">
-                        <span ng-if="entry.drawG.amount != 'X'">{{entry.drawG.amount | number:2}} </span>
-                        <span ng-if="entry.drawG.amount == 'X'">{{entry.drawG.amount}} </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        N<br />
-                        O<br />
-                        V
-                    </td>
-                    <td>
-                        O<br />
-                        C<br />
-                        T
-                    </td>
-                    <td style="font-weight: bold;">
-                        {{entry.drawH.type}}
-                    </td>
-                    <td>
-                        {{entry.drawH.number}}
-                    </td>
-                    <td ng-model="amountH">
-                        <span ng-if="entry.drawH.amount != 'X'">{{entry.drawH.amount | number:2}} </span>
-                        <span ng-if="entry.drawH.amount == 'X'">{{entry.drawH.amount}} </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        Dt: {{input.today | date:'dd-MM-yy'}}
-                    </td>
-                    <td rowspan="2" style="font-size: 13px;">
-                        <b>&#8377;</b>
-                        <!--<div>
-                            <img style="height: 15px;" src="img/rupee.png" />
-                        </div>-->
-                    </td>
-                    <td rowspan="2">
-                        {{ entry.totalAmount | number:2}}
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        &nbsp;
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-</div>
-
 </div>

@@ -1,9 +1,9 @@
 ﻿<div ng-if="isABCD">
-    <div class="grid view-grid" ui-grid="gridABCDOptions" ui-grid-selection>
+    <div class="grid view-grid" ui-grid="gridABCDOptions" ui-grid-selection ui-grid-exporter>
     </div>
 </div>
 <div ng-if="isEFGH">
-    <div class="grid view-grid" ui-grid="gridEFGHOptions" ui-grid-selection>
+    <div class="grid view-grid" ui-grid="gridEFGHOptions" ui-grid-selection ui-grid-exporter>
     </div>
 </div>
 				
@@ -31,7 +31,7 @@
 				  </div>
 				</div>
 
-<div class="myTable">
+<div class="myTable" style="display: none;">
 	<table id="tableStudent" style="width:100%">
 	  <thead>
 	  <caption>Monthly savings</caption>
