@@ -5,7 +5,7 @@
 </script>
 <div class="stack-container">
     <div class="stack-content">
-        <div class="stack-table-element" ng-repeat="entry in entriesABCD">
+        <div class="stack-table-element" ng-repeat="entry in entriesABCD track by $index">
             <table class="table table-box table-bordered">
                 <thead>
 					<tr class="border-thick">
@@ -43,7 +43,7 @@
                         <td class="td-draw-type" ng-switch="entry.drawA.type">
 							<span ng-switch-when="X">A</span>
 							<span ng-switch-when="A1/2">A<span class="td-draw-half">1&frasl;2</span></span>
-							<span ng-switch-when="A++">A<span class="td-draw-half">++</span></span>
+							<div ng-switch-when="A++"><span>A</span><span class="td-draw-plus2">+<br>+</span></div>
 							<span ng-switch-default>{{entry.drawA.type}}</span>
                         </td>
                         <td class="td-draw-number">
@@ -68,7 +68,7 @@
                         <td class="td-draw-type" ng-switch="entry.drawB.type">
 							<span ng-switch-when="X">B</span>
 							<span ng-switch-when="B1/2">B<span class="td-draw-half">1&frasl;2</span></span>
-							<span ng-switch-when="B++">B<span class="td-draw-half">++</span></span>
+							<div ng-switch-when="B++"><span>B</span><span class="td-draw-plus2">+<br>+</span></div>
 							<span ng-switch-default>{{entry.drawB.type}}</span>
                         </td>
                         <td class="td-draw-number">
@@ -93,7 +93,7 @@
                         <td class="td-draw-type" ng-switch="entry.drawC.type">
 							<span ng-switch-when="X">C</span>
 							<span ng-switch-when="C1/2">C<span class="td-draw-half">1&frasl;2</span></span>
-							<span ng-switch-when="C++">C<span class="td-draw-half">++</span></span>
+							<div ng-switch-when="C++"><span>C</span><span class="td-draw-plus2">+<br>+</span></div>
 							<span ng-switch-default>{{entry.drawC.type}}</span>
                         </td>
                         <td class="td-draw-number">
@@ -118,7 +118,7 @@
                         <td class="td-draw-type" ng-switch="entry.drawD.type">
 							<span ng-switch-when="X">D</span>
 							<span ng-switch-when="D1/2">D<span class="td-draw-half">1&frasl;2</span></span>
-							<span ng-switch-when="D++">D<span class="td-draw-half">++</span></span>
+							<div ng-switch-when="D++"><span>D</span><span class="td-draw-plus2">+<br>+</span></div>
 							<span ng-switch-default>{{entry.drawD.type}}</span>
                         </td>
                         <td class="td-draw-number">
@@ -147,6 +147,9 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+			<div ng-if="showPaginationText($index, entriesABCD)" class="pagination-text" ng-class="{'pagination-text-last': isLastItem($index, entriesABCD)}">
+				<span>{{getPaginationText($index, entriesABCD)}}</span>
+			</div>
+		</div>
     </div>
 </div>

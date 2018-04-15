@@ -124,6 +124,8 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 		  };
 	  }
 	  
+	  $scope.resetFormData = resetFormData;
+	  
 	  function resetFormABCD() {	  
 		  $scope.selected = {
 			  ABCD: {
@@ -468,12 +470,14 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 		  };		  
 	  }
 
+	  $scope.loading = false;
       $scope.generateStack = function () {
           console.log($scope.input);
           if ($scope.isABCD) {
 			  if ($scope.input.today && $scope.input.valueA && $scope.input.valueB && $scope.input.valueC && $scope.input.valueD) {
 				  $scope.input.isValidForm = true;
 				  $scope.viewStack = true;
+				  $scope.loading = true;
 				  //createABCDValuesForDate();
 				  calculateStackABCD();
 			  }
@@ -485,6 +489,7 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 			  if ($scope.input.today && $scope.input.valueE && $scope.input.valueF && $scope.input.valueG && $scope.input.valueH) {
 				  $scope.input.isValidForm = true;
 				  $scope.viewStack = true;
+				  $scope.loading = true;
 				  /* saveEFGHValuesForDate(); */
 				  calculateStackEFGH();
 			  }
@@ -514,17 +519,21 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
           var currentYear = today.getFullYear();
 
           var startDate = new Date();
-          startDate.setFullYear(currentYear);
-          startDate.setMonth(month - 1);
+          startDate.setFullYear(currentYear);		  
           startDate.setDate(day);
+		  
+		  var startMonth = (month - 1);
+          startDate.setMonth(startMonth);
 
           today.setMilliseconds(0);
           today.setSeconds(0);
           today.setMinutes(0);
+		  today.setHours(0);
 
           startDate.setMilliseconds(0);
           startDate.setSeconds(0);
           startDate.setMinutes(0);
+		  startDate.setHours(0);
 
           if (today.getTime() < startDate.getTime()) {
               startDate.setFullYear(currentYear - 1);
@@ -634,7 +643,9 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
                   entry.totalAmount = $scope.getTotalAmount(entry.drawA.amount, entry.drawB.amount, entry.drawC.amount, entry.drawD.amount);
               });
 			  
-			  sortABCD();
+			  sortABCD();			  
+			  
+			  $scope.loading = false;
           });
       }
 
@@ -696,6 +707,8 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
               });
               
 			  sortEFGH();
+			  
+			  $scope.loading = false;
           });
       }
 
@@ -1215,8 +1228,28 @@ boxControllers.controller('categoryCtrl', ['$scope', '$route', '$rootScope', '$r
 		};
 	  
 	  $scope.printPage = function() {
-		  window.print();
-	  }
+		var tempTitle = document.title;
+		document.title = "Test PDF File name.pdf";
+		window.print();
+		document.title = tempTitle;
+	  };
+	  
+	  $scope.showPaginationText = function(index, list) {
+		  var itemsPerPage = 16;
+		  return ((index+1)%itemsPerPage === 0) || ((index+1) === list.length);
+	  };
+	  
+	  $scope.getPaginationText = function(index, list) {
+		  var itemsPerPage = 16;
+		  var pageNo = Math.ceil((index+1)/itemsPerPage);
+		  var totalPages = Math.ceil(list.length/itemsPerPage);
+		  
+		  return "Page no: " + pageNo + " of " + totalPages;
+	  };
+	  
+	  $scope.isLastItem = function(index, list) {
+		  return (index+1) === list.length;
+	  };
 
       $scope.$watch('input.today', function () {
           if ($scope.input.today) {

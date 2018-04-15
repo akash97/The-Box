@@ -54,6 +54,11 @@ body
     color: Green;
 }
 
+.loading {
+	font-size: 38px;
+    color: black;
+}
+
 
 .form-control:invalid{
   border-color: orangered;;
@@ -226,10 +231,11 @@ h1
 
 .stack-content {
 	width: 21.5cm; margin: 0px;
+	position: relative;
 }
 
 .stack-table-element {
-	display: inline-block; margin-left: 4px; margin-right: 9px; width: 5cm;	
+	display: inline-grid; margin-left: 4px; margin-right: 9px; width: 5cm;	
 }
 
 table {
@@ -285,6 +291,13 @@ table {
 
 .td-total-amount {
 	height: 1.2cm;	
+	font-size: 14px;
+	padding: 4px 1px !important;
+}
+
+.td-draw-amount {
+	font-size: 14px;
+	padding: 4px 1px !important;
 }
 
 .table-box  .td-draw-type {
@@ -299,6 +312,11 @@ table {
     font-size: 16px;
 }
 
+.td-draw-plus2 {
+	display: inline-block;
+    font-size: 14px;
+}
+
 .td-symbol-rupee {
 	font-size: 24px;
     font-stretch: condensed;
@@ -307,10 +325,6 @@ table {
 .td-draw-number {
 	font-weight: normal !important;
 	font-size: 16px !important;
-}
-
-.td-draw-amount {
-	font-weight: normal !important;
 }
 
 .grid
@@ -367,6 +381,9 @@ input[type="text"].ui-grid-filter-input {
 	display: block;
 	margin-bottom: 2px;
 }
+.pagination-text {
+	display: none;
+}
 
 
 @media print
@@ -378,5 +395,15 @@ input[type="text"].ui-grid-filter-input {
 	
 	@page {
 		margin: 0.5cm 0.5cm;
+	}
+	
+	.pagination-text {
+		display: block;
+		text-align: right;font-weight: bold;
+	}
+	.pagination-text-last {
+		position: absolute;
+		right: 0px;
+		bottom: 0px;
 	}
 }
